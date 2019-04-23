@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "624603903782",
+    "firebase_url": "https://punchclock-31842.firebaseio.com",
+    "project_id": "punchclock-31842",
+    "storage_bucket": "punchclock-31842.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:624603903782:android:cee0bbf3e341922a",
+        "android_client_info": {
+          "package_name": "com.example.android.punchclock"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "624603903782-57gk8ptj4ahaoonao40lamnqu0luvdvb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.android.punchclock",
+            "certificate_hash": "de85c56607d21ddd266b31a5c1815f985882f48a"
+          }
+        },
+        {
+          "client_id": "624603903782-b79thjomf3jqomsavhc3b85nd2jjplq0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUqzLKeEgNiJRS8Jq8568EIryiFV6zxNY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "624603903782-b79thjomf3jqomsavhc3b85nd2jjplq0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
