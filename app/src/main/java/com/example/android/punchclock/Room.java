@@ -6,13 +6,17 @@ package com.example.android.punchclock;
 public class Room {
     private String uniqueID;
     private String location;
-    private String name;
     private String date;
+    private String time;
+    private String title;
 
     public Room(){}
 
-    public Room(String uniqueID){
+    public Room(String uniqueID, String title, String date, String time){
         this.uniqueID = uniqueID;
+        this.title = title;
+        this.date = date;
+        this.time = time;
 
     }
 

@@ -12,6 +12,7 @@ import android.view.View;
 import java.text.DateFormat;
 import java.util.Calendar;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
@@ -89,8 +90,14 @@ public class createRoom extends AppCompatActivity implements DatePickerDialog.On
         uniqueId = randomId;
     }
 
+    //Push Room Object to Firebase
     public void sendToFirebase(View view) {
-        userReference.push().setValue(uniqueId);
+        String time = findViewById(R.id.chosen_time).toString();
+        String date = findViewById(R.id.chosen_date).toString();
+        EditText title = findViewById(R.id.room_title);
+        String roomTitle = title.getText().toString();
+        Room room = new Room(uniqueId, roomTitle, date, time);
+        userReference.push().setValue(room);
     }
 
     @Override
@@ -104,6 +111,5 @@ public class createRoom extends AppCompatActivity implements DatePickerDialog.On
         super.onStop();
         auth.removeAuthStateListener(authListener);
     }
-
 
 }
