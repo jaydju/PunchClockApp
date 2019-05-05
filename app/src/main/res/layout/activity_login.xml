@@ -94,6 +94,19 @@
         android:paddingRight="32dp">
 
         <EditText
+            android:id = "@+id/edit_text_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:drawablePadding="16dp"
+            android:drawableRight="@drawable/ic_email_white_24dp"
+            android:fontFamily="@font/calibri"
+            android:hint="Name"
+            android:visibility="gone"
+            android:maxLines="1"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+
+        <EditText
             android:id = "@+id/edit_text_email"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -130,30 +143,64 @@
             android:orientation="horizontal">
 
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="16dp"
-                android:background="@drawable/buttonshapewhitebg"
-                android:fontFamily="@font/calibri"
-                android:text="Sign up"
-                android:textAllCaps="false"
-                android:textStyle="bold"
-                android:textColor="#96ffffff"
-                android:textSize="16dp"
-                android:onClick = "signUp"/>
-
-            <Button
+                android:id = "@+id/signin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:background="@drawable/buttonshapewhitebg"
                 android:fontFamily="@font/calibri"
-                android:text="Sign in"
+                android:text="Sign In"
                 android:textAllCaps="false"
                 android:textColor="#96ffffff"
                 android:textSize="16dp"
                 android:textStyle="bold"
                 android:onClick = "logIn"/>
+
+            <Button
+                android:id = "@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:background="@drawable/buttonshapewhitebg"
+                android:fontFamily="@font/calibri"
+                android:text="Back"
+                android:visibility="gone"
+                android:textAllCaps="false"
+                android:textColor="#96ffffff"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:onClick = "back"/>
+
+            <Button
+                android:id = "@+id/signup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:background="@drawable/buttonshapewhitebg"
+                android:fontFamily="@font/calibri"
+                android:text="Sign Up"
+                android:textAllCaps="false"
+                android:textColor="#96ffffff"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:onClick = "userSignUp"/>
+
+            <Button
+                android:id = "@+id/submit_signup"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:background="@drawable/buttonshapewhitebg"
+                android:fontFamily="@font/calibri"
+                android:text="Submit"
+                android:visibility = "gone"
+                android:textAllCaps="false"
+                android:textColor="#96ffffff"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:onClick = "signUp"/>
+
         </LinearLayout>
 
         <TextView
@@ -161,9 +208,19 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/calibri"
-            android:text="Forgot Password?"
+            android:text="Forgot Your Password?"
             android:textAlignment="center"
             android:textColor="#96ffffff"
+            android:textSize="16sp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:textStyle = "bold"
+            android:fontFamily="@font/calibri"
+            android:text="Click Here"
+            android:textAlignment="center"
+            android:textColor="#187EFF"
             android:textSize="16sp" />
 
     </LinearLayout>

@@ -1,5 +1,6 @@
 package com.example.android.punchclock;
 
+import android.app.ActionBar;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
@@ -14,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -56,6 +58,9 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         };
+        FirebaseUser user1 = FirebaseAuth.getInstance().getCurrentUser();
+        TextView welcome = findViewById(R.id.welcome_textview);
+        welcome.setText("Welcome "+ user1.getDisplayName());
 
     }
     public void joinRoom(View view){
@@ -81,6 +86,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void logOut(MenuItem item){auth.signOut();}
+
+    public void showProfile(MenuItem item){
+        Intent intent = new Intent(this, profilePage.class);
+        startActivity(intent);
+    }
 
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu_main, menu);
