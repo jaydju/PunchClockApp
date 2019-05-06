@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation = "vertical"
+    android:background = "@color/white"
+    tools:context=".RoomDisplayer">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "Room Information"/>
+
+    <TextView
+        android:id = "@+id/title_displayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "Title"/>
+    <TextView
+        android:id = "@+id/date_displayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "Date"/>
+
+    <TextView
+        android:id = "@+id/time_displayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "Time"/>
+
+    <TextView
+        android:id = "@+id/location_displayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "Location"/>
+
+</LinearLayout>

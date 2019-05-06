@@ -32,6 +32,7 @@ public class createRoom extends AppCompatActivity implements DatePickerDialog.On
     private String uniqueId;
     private FirebaseAuth auth;
     private FirebaseAuth.AuthStateListener authListener;
+    private DatabaseReference roomRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,7 @@ public class createRoom extends AppCompatActivity implements DatePickerDialog.On
         FirebaseApp.initializeApp(this);
         database = FirebaseDatabase.getInstance();
         auth = FirebaseAuth.getInstance();
+        roomRef = database.getReference("Rooms");
 
         authListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -85,19 +87,27 @@ public class createRoom extends AppCompatActivity implements DatePickerDialog.On
         UUID idOne = UUID.randomUUID();
         String id = String.valueOf(idOne);
         String randomId = id.substring(0, 5);
-        TextView string = (TextView) findViewById(R.id.string);
+        TextView string = (TextView) findViewById(R.id.unique_key_id);
         string.setText(randomId);
         uniqueId = randomId;
     }
 
     //Push Room Object to Firebase
     public void sendToFirebase(View view) {
-        String time = findViewById(R.id.chosen_time).toString();
-        String date = findViewById(R.id.chosen_date).toString();
-        EditText title = findViewById(R.id.room_title);
-        String roomTitle = title.getText().toString();
-        Room room = new Room(uniqueId, roomTitle, date, time);
-        userReference.push().setValue(room);
+        TextView chosenTime = findViewById(R.id.chosen_time);
+        String time = chosenTime.getText().toString();
+
+        TextView chosenDate = findViewById(R.id.chosen_date);
+        String date = chosenDate.getText().toString();
+
+        EditText roomTitle = findViewById(R.id.room_title);
+        String title = roomTitle.getText().toString();
+
+        TextView ID = findViewById(R.id.unique_key_id);
+        String uniqueID = ID.getText().toString();
+
+        //Pushing Elements to a New Room
+        roomRef.child(uniqueID).setValue(new Room(uniqueID, title, date, time));
     }
 
     @Override

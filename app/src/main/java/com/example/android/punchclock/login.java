@@ -1,6 +1,7 @@
 package com.example.android.punchclock;
 
 import android.content.Intent;
+import android.media.Image;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -125,6 +127,8 @@ public class login extends AppCompatActivity {
         signUp.setVisibility(View.GONE);
         Button backButton = findViewById(R.id.back);
         backButton.setVisibility(View.VISIBLE);
+        ImageView image = findViewById(R.id.imageView);
+        image.setImageResource(R.drawable.good_night_img);
 
     }
 
@@ -138,5 +142,8 @@ public class login extends AppCompatActivity {
         signUp.setVisibility(View.VISIBLE);
         Button backButton = findViewById(R.id.back);
         backButton.setVisibility(View.GONE);
+        ImageView image = findViewById(R.id.imageView);
+        image.setImageResource(R.drawable.good_morning_img);
+
     }
 }

@@ -16,8 +16,11 @@ public class profilePage extends AppCompatActivity {
 
         FirebaseUser user1 = FirebaseAuth.getInstance().getCurrentUser();
         TextView userName = findViewById(R.id.user_name);
-        userName.setText(user1.getDisplayName());
-        TextView punchClockId = findViewById(R.id.punchclock_id);
-        punchClockId.setText("PunchClock ID: " + user1.getUid());
+
+        if (user1 != null) {
+            userName.setText(user1.getDisplayName());
+            TextView punchClockId = findViewById(R.id.punchclock_id);
+            punchClockId.setText("PunchClock ID: " + user1.getUid());
+        }
     }
 }

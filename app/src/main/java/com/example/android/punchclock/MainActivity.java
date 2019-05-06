@@ -58,9 +58,12 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         };
-        FirebaseUser user1 = FirebaseAuth.getInstance().getCurrentUser();
-        TextView welcome = findViewById(R.id.welcome_textview);
-        welcome.setText("Welcome "+ user1.getDisplayName());
+
+//        FirebaseUser user1 = FirebaseAuth.getInstance().getCurrentUser();
+//        if (user1 != null) {
+//            TextView welcome = findViewById(R.id.welcome_textview);
+//            welcome.setText("Welcome " + user1.getDisplayName());
+//        }
 
     }
     public void joinRoom(View view){

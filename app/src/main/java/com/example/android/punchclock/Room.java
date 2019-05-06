@@ -20,4 +20,20 @@ public class Room {
 
     }
 
+    public String getUniqueID(){
+        return uniqueID;
+    }
+
+    public String getTitle(){
+        return title;
+    }
+
+    public String getDate(){
+        return date;
+    }
+
+    public String getTime(){
+        return time;
+    }
+
 }
