@@ -9,14 +9,16 @@ public class Room {
     private String date;
     private String time;
     private String title;
+    private String users;
 
     public Room(){}
 
-    public Room(String uniqueID, String title, String date, String time){
+    public Room(String uniqueID, String title, String date, String time, String users){
         this.uniqueID = uniqueID;
         this.title = title;
         this.date = date;
         this.time = time;
+        this.users = users;
 
     }
 
@@ -35,5 +37,6 @@ public class Room {
     public String getTime(){
         return time;
     }
+    public String getUsers() {return users;}
 
 }

@@ -61,6 +61,8 @@ public class joinRoom extends AppCompatActivity {
         String idNumber = keyId.getText().toString();
         DatabaseReference childRefIdNumber = roomRef.child(idNumber);
         Intent intent = new Intent(this,  RoomDisplayer.class);
+        intent.putExtra("ID_NUMBER", idNumber);
+
         //Get Date Element
 
         DatabaseReference childRefDateNumber = childRefIdNumber.child("date");
@@ -115,12 +117,16 @@ public class joinRoom extends AppCompatActivity {
 
             }
         });
+        intent.putExtra("DATE_KEY", roomDate);
+        intent.putExtra("DATE_TIME", roomTime);
+        intent.putExtra("DATE_TITLE", roomTitle);
+        startActivity(intent);
 
-        if(!roomDate.equals("") && !roomTime.equals("") && !roomTitle.equals("")) {
-            intent.putExtra("DATE_KEY", roomDate);
-            intent.putExtra("DATE_TIME", roomTime);
-            intent.putExtra("DATE_TITLE", roomTitle);
-            startActivity(intent);
-        }
+//        if(!roomDate.equals("") && !roomTime.equals("") && !roomTitle.equals("")) {
+//            intent.putExtra("DATE_KEY", roomDate);
+//            intent.putExtra("DATE_TIME", roomTime);
+//            intent.putExtra("DATE_TITLE", roomTitle);
+//            startActivity(intent);
+//        }
     }
 }

@@ -52,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
         Calendar c = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String strDate = sdf.format(c.getTime());
-        welcome.setText(strDate);
 
         FirebaseApp.initializeApp(this);
         database = FirebaseDatabase.getInstance();
@@ -71,13 +70,6 @@ public class MainActivity extends AppCompatActivity {
         };
 
         Timer t = new Timer();
-
-
-//        FirebaseUser user1 = FirebaseAuth.getInstance().getCurrentUser();
-//        if (user1 != null) {
-//            TextView welcome = findViewById(R.id.welcome_textview);
-//            welcome.setText("Welcome " + user1.getDisplayName());
-//        }
 
     }
     public void joinRoom(View view){

@@ -94,6 +94,7 @@ public class createRoom extends AppCompatActivity implements DatePickerDialog.On
 
     //Push Room Object to Firebase
     public void sendToFirebase(View view) {
+        String name = "";
         TextView chosenTime = findViewById(R.id.chosen_time);
         String time = chosenTime.getText().toString();
 
@@ -106,8 +107,13 @@ public class createRoom extends AppCompatActivity implements DatePickerDialog.On
         TextView ID = findViewById(R.id.unique_key_id);
         String uniqueID = ID.getText().toString();
 
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null){
+            name = user.getDisplayName();
+        }
+
         //Pushing Elements to a New Room
-        roomRef.child(uniqueID).setValue(new Room(uniqueID, title, date, time));
+        roomRef.child(uniqueID).setValue(new Room(uniqueID, title, date, time, name));
     }
 
     @Override
