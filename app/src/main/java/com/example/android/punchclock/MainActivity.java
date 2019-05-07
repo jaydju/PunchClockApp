@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextClock;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -28,6 +29,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import java.util.Calendar;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.Timer;
 
 import studios.codelight.smartloginlibrary.users.SmartUser;
 import studios.codelight.smartloginlibrary.util.SmartLoginException;
@@ -37,11 +41,18 @@ public class MainActivity extends AppCompatActivity {
     DatabaseReference userReference;
 
     private FirebaseAuth auth;
+    private boolean activeRoom;
     private FirebaseAuth.AuthStateListener authListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        TextView welcome = findViewById(R.id.welcome_textview);
+        Calendar c = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String strDate = sdf.format(c.getTime());
+        welcome.setText(strDate);
 
         FirebaseApp.initializeApp(this);
         database = FirebaseDatabase.getInstance();
@@ -58,6 +69,9 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         };
+
+        Timer t = new Timer();
+
 
 //        FirebaseUser user1 = FirebaseAuth.getInstance().getCurrentUser();
 //        if (user1 != null) {

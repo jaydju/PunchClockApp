@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextClock;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,12 +51,16 @@ public class joinRoom extends AppCompatActivity {
         roomTitle = title;
     }
 
+    public void enterRoom2(View view){
+        String idNumber = keyId.getText().toString();
+        Intent intent = new Intent(this, RoomDisplayer.class);
+        intent.putExtra("ID_NUMBER", idNumber);
+    }
+
     public void enterRoom(View view){
         String idNumber = keyId.getText().toString();
         DatabaseReference childRefIdNumber = roomRef.child(idNumber);
         Intent intent = new Intent(this,  RoomDisplayer.class);
-
-
         //Get Date Element
 
         DatabaseReference childRefDateNumber = childRefIdNumber.child("date");
