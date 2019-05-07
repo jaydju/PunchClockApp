@@ -5,5 +5,11 @@
     <color name="accent_color">#FF5722</color>
     <color name="iron">#434b4d </color>
     <color name="white">#ffffff</color>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="colorTabLayout">#F8F8F8</color> //#4b4b4b
+    <color name="colorGold">#D7B740</color>
+    <color name="colorTabText">#A8A19E</color>
     <color name="textInputLayout">#96ffffff</color>
 </resources>

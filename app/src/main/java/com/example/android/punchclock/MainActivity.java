@@ -5,16 +5,20 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.format.DateFormat;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextClock;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -32,11 +36,16 @@ import java.util.Calendar;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.Timer;
+import android.support.v4.view.ViewPager;
+import android.support.design.widget.TabLayout;
+
 
 import studios.codelight.smartloginlibrary.users.SmartUser;
 import studios.codelight.smartloginlibrary.util.SmartLoginException;
 
 public class MainActivity extends AppCompatActivity {
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
     FirebaseDatabase database;
     DatabaseReference userReference;
 
@@ -69,8 +78,29 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
+        //Tab View Adapter
+        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
+        viewPager = (ViewPager) findViewById(R.id.viewPager);
+        TabPagerAdapter tabPagerAdapter = new TabPagerAdapter(this,getSupportFragmentManager());
+        viewPager.setAdapter(tabPagerAdapter);
+        tabLayout.setupWithViewPager(viewPager);
+
+        //Adding Dividers to TabLayout
+        LinearLayout linearLayout = (LinearLayout)tabLayout.getChildAt(0);
+        linearLayout.setShowDividers(LinearLayout.SHOW_DIVIDER_MIDDLE);
+        GradientDrawable drawable = new GradientDrawable();
+        drawable.setColor(Color.GRAY);
+        drawable.setSize(2, 1);
+        linearLayout.setDividerPadding(10);
+        linearLayout.setDividerDrawable(drawable);
+
         Timer t = new Timer();
 
+    }
+    private void createTabIcons(){
+        TextView tabOne = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
+        tabOne.setText("Discover");
+        tabOne.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_);
     }
     public void joinRoom(View view){
         Intent intent = new Intent(this, joinRoom.class);

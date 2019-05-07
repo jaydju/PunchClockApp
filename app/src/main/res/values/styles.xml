@@ -25,6 +25,16 @@
         </item>
     </style>
 
+    <style name="CategoryTab" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">@color/primary_color</item>
+        <item name="tabSelectedTextColor">@color/primary_color</item>
+        <item name="tabTextAppearance">@style/CategoryTabTextAppearance</item>
+    </style>
+
+    <style name="CategoryTabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textColor">@color/colorTabText</item>
+    </style>
+
     <style name="EditScreenTextInputLayoutStyle" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorControlNormal">@color/textInputLayout</item>
         <item name="colorControlActivated">@color/textInputLayout</item>

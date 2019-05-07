@@ -9,4 +9,7 @@
     <string name="sign_in_facebook">Sign in with Facebook</string>
     <string name="sign_in_google">Sign in with Google</string>
     <string name="logout_text">Sign out</string>
+    <string name="tab_one">Discover</string>
+    <string name="tab_two">Join Room</string>
+    <string name="tab_three">Create Room</string>
 </resources>

@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RoomDisplayer"></activity>
+        <activity android:name=".TabThree"></activity>
+        <activity android:name=".TabTwo" />
+        <activity android:name=".TabOne" />
+        <activity android:name=".RoomDisplayer" />
         <activity android:name=".profilePage" />
         <activity android:name=".login" />
         <activity android:name=".createRoom" />
