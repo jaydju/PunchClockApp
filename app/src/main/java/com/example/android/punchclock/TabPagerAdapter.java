@@ -23,14 +23,17 @@ public class TabPagerAdapter extends FragmentPagerAdapter {
         else if(i==1){
             return new TabTwo();
         }
-        else
+        else if (i == 2) {
             return new TabThree();
+        }
+        else
+            return new ProfileTab();
     }
 
     @Override
     public int getCount() {
         //Total number of tabs
-        return 3;
+        return 4;
     }
 
     @Nullable
@@ -42,7 +45,10 @@ public class TabPagerAdapter extends FragmentPagerAdapter {
         else if(position == 1){
             return context.getString(R.string.tab_two);
         }
-        else
+        else if (position == 2) {
             return context.getString(R.string.tab_three);
+        }
+        else
+            return context.getString(R.string.profile_tab);
     }
 }

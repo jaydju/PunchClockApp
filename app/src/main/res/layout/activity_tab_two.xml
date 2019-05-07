@@ -1,24 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation = "horizontal"
+    android:layout_gravity="center"
+    android:gravity = "center"
     tools:context=".TabTwo">
 
-    <TextView
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="@string/tab_two"
-        android:textSize="35sp"
-        android:textColor="@color/colorGold"
-        android:textStyle="bold"/>
+        android:orientation = "vertical"
+        android:paddingRight = "10dp">
 
-    <Button
-        android:layout_width="150dp"
+        <Button
+            android:background = "@drawable/create_button"
+            android:id = "@+id/create_room_button"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:onClick="createRoom"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:textSize = "20sp"
+            android:layout_gravity = "center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle = "bold"
+            android:text = "Create"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:paddingLeft = "10dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="joinRoom"
-        android:text="Join Room"
-        android:textColor="@color/white" />
+        android:orientation="vertical">
 
-</RelativeLayout>
+        <Button
+            android:background = "@drawable/join_button"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:onClick="joinRoom"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize = "20sp"
+            android:textStyle = "bold"
+            android:text = "Join"/>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -42,4 +42,10 @@
         <item name="colorAccent">@color/textInputLayout</item>
         <item name="android:textColorHint">@color/textInputLayout</item>
     </style>
+
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">#F9F398</item>
+        <item name="colorControlActivated">#D3D3D3</item>
+    </style>
+
 </resources>

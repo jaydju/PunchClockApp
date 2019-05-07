@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background = "#D3D3D3"
+    android:orientation = "vertical"
+    tools:context=".ProfileTab">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_marginTop = "5dp"
+            android:layout_marginLeft = "4dp"
+            android:id = "@+id/profile_photo_tab"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:scaleType="centerCrop"
+            android:src = "@drawable/previous_punches" />
+
+        <LinearLayout
+            android:layout_toRightOf="@+id/profile_photo_tab"
+            android:layout_width="match_parent"
+            android:orientation = "vertical"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id = "@+id/user_name_tab"
+                android:textSize = "30sp"
+                android:paddingLeft = "10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text = "Previous Punches"/>
+
+            <TextView
+                android:id = "@+id/punctuality_score"
+                android:textSize = "15sp"
+                android:paddingLeft = "10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text = "Punctuality Score"/>
+
+            <RatingBar
+                android:layout_marginLeft = "10dp"
+                android:id="@+id/punctuality_rating_bar"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5" />
+
+        </LinearLayout>
+    </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width = "match_parent"
+        android:layout_height = "match_parent"
+        android:id ="@+id/places_recyclerview">
+    </android.support.v7.widget.RecyclerView>
+
+</LinearLayout>

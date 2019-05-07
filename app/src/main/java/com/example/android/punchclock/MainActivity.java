@@ -11,7 +11,10 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -32,6 +35,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.text.SimpleDateFormat;
@@ -52,12 +57,15 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private boolean activeRoom;
     private FirebaseAuth.AuthStateListener authListener;
+
+    private ArrayList<String> mNames = new ArrayList<>();
+    private ArrayList<String> mImageUrls = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView welcome = findViewById(R.id.welcome_textview);
         Calendar c = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String strDate = sdf.format(c.getTime());
@@ -90,17 +98,48 @@ public class MainActivity extends AppCompatActivity {
         linearLayout.setShowDividers(LinearLayout.SHOW_DIVIDER_MIDDLE);
         GradientDrawable drawable = new GradientDrawable();
         drawable.setColor(Color.GRAY);
-        drawable.setSize(2, 1);
+        drawable.setSize(1, 1);
         linearLayout.setDividerPadding(10);
         linearLayout.setDividerDrawable(drawable);
 
         Timer t = new Timer();
+        createTabIcons();
+
+
+        //Setting Up Profile Page Fragment (Null Pointer Exception?)
+//        FirebaseUser user1 = FirebaseAuth.getInstance().getCurrentUser();
+//        TextView userName = findViewById(R.id.user_name_tab);
+//
+//        if (user1 != null) {
+//            String user = (user1.getDisplayName());
+//            if (!user.equals("")){
+//                userName.setText(user);
+//            }
+//            TextView punchClockId = findViewById(R.id.punchclock_id_tab);
+//            punchClockId.setText("PunchClock ID: " + user1.getUid());
+//        }
 
     }
     private void createTabIcons(){
         TextView tabOne = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
         tabOne.setText("Discover");
-        tabOne.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_);
+        tabOne.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_compass_grey_24dp, 0, 0);
+        tabLayout.getTabAt(0).setCustomView(tabOne);
+
+        TextView tabTwo = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
+        tabTwo.setText("Join/Create");
+        tabTwo.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_joincreate_24dp, 0, 0);
+        tabLayout.getTabAt(1).setCustomView(tabTwo);
+
+        TextView tabThree = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
+        tabThree.setText("Upcoming");
+        tabThree.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_alarm_24dp, 0, 0);
+        tabLayout.getTabAt(2).setCustomView(tabThree);
+
+        TextView profileTab = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
+        profileTab.setText("Previous");
+        profileTab.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_profile_24dp, 0, 0);
+        tabLayout.getTabAt(3).setCustomView(profileTab);
     }
     public void joinRoom(View view){
         Intent intent = new Intent(this, joinRoom.class);
@@ -135,5 +174,4 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return super.onCreateOptionsMenu(menu);
     }
-
 }
