@@ -107,7 +107,7 @@
         android:layout_height="wrap_content"
         android:text="Choose Location"
         android:textColor = "@color/white"
-        android:onClick = "setTime"
+        android:onClick = "setLocation"
         android:textSize = "10sp" />
 
 

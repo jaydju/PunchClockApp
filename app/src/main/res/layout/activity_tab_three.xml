@@ -1,23 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation = "vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background = "#D3D3D3"
     tools:context=".TabThree">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="@string/tab_three"
-        android:textSize="35sp"
-        android:textColor="@color/colorGold"
-        android:textStyle="bold"/>
+        android:background = "#FFFF99">
+            <LinearLayout
+                android:gravity="center"
+                android:background = "#006400"
+                android:layout_toRightOf="@+id/profile_photo_tab"
+                android:layout_width="match_parent"
+                android:orientation = "vertical"
+                android:layout_height="150dp">
+                <TextView
+                    android:textStyle = "bold"
+                    android:layout_gravity="center"
+                    android:id = "@+id/user_name_tab"
+                    android:textSize = "30sp"
+                    android:textColor = "@color/white"
+                    android:paddingLeft = "10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text = "Upcoming Punches"/>
+            </LinearLayout>
+    </android.support.v7.widget.CardView>
 
-    <DigitalClock
-        android:id="@+id/simpleDigitalClock"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <android.support.v7.widget.CardView
+        android:id = "@+id/event_card"
+        android:visibility="gone"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight = "2dp"
+        app:cardCornerRadius="4dp"
+        android:layout_marginTop = "15dp"
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation = "horizontal">
+
+            <ImageView
+                android:layout_gravity="center_vertical"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:src = "@drawable/previous_punches"
+                android:id = "@+id/img_contact"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation = "vertical"
+                android:layout_marginLeft = "16dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle = "bold"
+                    android:textSize = "20sp"
+                    android:text = "Room Title"
+                    android:id = "@+id/card_title" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle = "bold"
+                    android:text = "Location: "
+                    android:id = "@+id/card_location" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle = "bold"
+                    android:text = "When: "
+                    android:id = "@+id/card_when" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity = "end"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_marginTop = "2dp"
+                    android:layout_marginRight = "4dp"
+                    android:id = "@+id/card_time_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text = "37min late"/>
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
 
 
-</RelativeLayout>
+
+</LinearLayout>

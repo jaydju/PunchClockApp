@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -107,13 +108,21 @@ public class createRoom extends AppCompatActivity implements DatePickerDialog.On
         TextView ID = findViewById(R.id.unique_key_id);
         String uniqueID = ID.getText().toString();
 
+        TextView location = findViewById(R.id.chosen_location);
+        String locationCoord = location.getText().toString();
+
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null){
             name = user.getDisplayName();
         }
 
         //Pushing Elements to a New Room
-        roomRef.child(uniqueID).setValue(new Room(uniqueID, title, date, time, name));
+        roomRef.child(uniqueID).setValue(new Room(uniqueID, title, date, time, name, locationCoord));
+
+        Intent intent = new Intent();
+        intent.putExtra("validID",uniqueID);
+        setResult(RESULT_OK,intent);
+        finish();
     }
 
     @Override
@@ -128,4 +137,24 @@ public class createRoom extends AppCompatActivity implements DatePickerDialog.On
         auth.removeAuthStateListener(authListener);
     }
 
+    public void setLocation(View view) {
+
+
+        Intent intent = new Intent(createRoom.this,MapsActivity.class);
+        startActivityForResult(intent,60);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(resultCode == RESULT_OK && requestCode == 60)
+        {
+            String latitude = data.getStringExtra("latitude");
+            String longitude = data.getStringExtra("longitude");
+
+            TextView chosenLocation = findViewById(R.id.chosen_location);
+            chosenLocation.append(" " +latitude+", "+longitude);
+        }
+    }
 }
